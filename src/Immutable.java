@@ -26,7 +26,11 @@ public final class Immutable {
     }
 
     public Map<Integer, String> getMap() {
-        return map;
+        Map<Integer, String> deepCopy = new HashMap<>();
+        for (Integer key : map.keySet()) {
+            deepCopy.put(key, map.get(key));
+        }
+        return deepCopy;
     }
 
     @Override
